@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "../../../Projet Symfony/LeRebours/gestion_formation"
+		},
+		{
+			"path": "../../../../../../Applications/MAMP/htdocs/testClassPHP"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Projet Symfony/LeRebours/gestion_form"
+		},
+		{
+			"path": "../../../Projet Symfony/LeRebours/project"
+		},
+		{
+			"path": "../../../Projet Symfony/projetFormation"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"libft.h": "c"
+		}
+	}
+}
