@@ -24,7 +24,7 @@ int		ft_is_type(char c)
 	int		i;
 
 	i = 0;
-	str = "c";
+	str = "csdxiu%";
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -41,22 +41,22 @@ int		ft_print_new_args(char c, va_list args)
 	nb_char = 0;
 	if (c == 'c')
 		nb_char = ft_print_c(va_arg(args, int));
-	// if (c == 's')
-	// 	return (ft_print_s(args));
+	if (c == 's')
+		return (ft_print_s(va_arg(args, char*)));
 	// if (c == 'p')
 	// 	return (ft_print_p(args));
-	// if (c == 'd')
-	// 	return (ft_print_d(args));
-	// if (c == 'i')
-	// 	return (ft_print_i(args));
-	// if (c == 'u')
-	// 	return (ft_print_u(args));
-	// if (c == 'x')
-	// 	return (ft_print_x(args));
+	if (c == 'd')
+		return (ft_print_d(va_arg(args, int)));
+	if (c == 'i')
+		return (ft_print_d(va_arg(args, int)));
+	if (c == 'u')
+		return (ft_print_d((int)va_arg(args, int)));
+	if (c == 'x')
+		return (ft_print_x(va_arg(args, int)));
 	// if (c == 'X')
 	// 	return (ft_print_xx(args));
-	// if (c == '%')
-	// 	return (ft_print_pourcentage(args));
+	if (c == '%')
+		return (ft_putchar('%'));
 	return (nb_char);
 }
 
@@ -82,23 +82,21 @@ int     ft_printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return (nb_char + 1);
+	return (nb_char);
 }
 
-// compilation : clang ft_printf.c sources/ft_print_c.c libft/ft_strdup.c libft/ft_strlen.c
+// compilation : gcc -Werror -Wall -Wextra ft_printf.c sources/ft_print_c.c libft/ft_strdup.c libft/ft_strlen.c sources/ft_print_s.c sources/ft_print_d.c
 int main()
 {
-	char    g;
-	int   s;
-	char	g2;
+	int    g;
+	//int		g2;
 	int		f;
 	int 	x;
 
-	 s = 123;
-	g = 'g'; 
-	g2 = 'z';
-	f = printf("Vrai printf : %c puis %c\n", g2, g);
-	x = ft_printf("Mon printf : %c puis %c\n", g2, g);
+	g = -21448; 
+	//g2 = 345;
+	f = printf("Son printf : puis %x\n", g);
+	x = ft_printf("Mon printf : puis %x\n", g);
 
-	printf("%d doit être égale à %d", x, f);
+	printf("mon printf : %d doit être égale à %d", x, f);
 }
