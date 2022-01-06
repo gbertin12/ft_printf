@@ -10,21 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"includes/ft_printf.h"
+#include "includes/libftprintf.h"
 #include <stdio.h>
+
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int		ft_is_type(char c)
+int	ft_is_type(char c)
 {
 	char	*str;
 	int		i;
 
 	i = 0;
-	str = "csdxiu%";
+	str = "%csdiupxX";
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -34,40 +35,39 @@ int		ft_is_type(char c)
 	return (0);
 }
 
-int		ft_print_new_args(char c, va_list args)
+int	ft_print_new_args(char c, va_list args)
 {
-	int nb_char;
-
-	nb_char = 0;
 	if (c == 'c')
-		nb_char = ft_print_c(va_arg(args, int));
+		return (ft_print_c(va_arg(args, int)));
 	if (c == 's')
-		return (ft_print_s(va_arg(args, char*)));
-	// if (c == 'p')
-	// 	return (ft_print_p(args));
-	if (c == 'd')
-		return (ft_print_d(va_arg(args, int)));
-	if (c == 'i')
+		return (ft_print_s(va_arg(args, char *)));
+	if (c == 'd' || c == 'i')
 		return (ft_print_d(va_arg(args, int)));
 	if (c == 'u')
-		return (ft_print_d((int)va_arg(args, int)));
+		return (ft_print_d((unsigned int)va_arg(args, int)));
 	if (c == 'x')
 		return (ft_print_x(va_arg(args, int)));
-	// if (c == 'X')
-	// 	return (ft_print_xx(args));
+	if (c == 'p')
+	{
+		ft_putchar('0');
+		ft_putchar('x');
+		return (ft_print_p((long long int)va_arg(args, void *)) + 2);
+	}
+	if (c == 'X')
+		return (ft_print_xx(va_arg(args, int)));
 	if (c == '%')
 		return (ft_putchar('%'));
-	return (nb_char);
+	return (0);
 }
 
-int     ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list 	args;
+	va_list		args;
 	int			nb_char;
 
 	nb_char = 0;
 	va_start(args, format);
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%' && *format + 1)
 		{
@@ -85,18 +85,16 @@ int     ft_printf(const char *format, ...)
 	return (nb_char);
 }
 
-// compilation : gcc -Werror -Wall -Wextra ft_printf.c sources/ft_print_c.c libft/ft_strdup.c libft/ft_strlen.c sources/ft_print_s.c sources/ft_print_d.c
 int main()
 {
-	int    g;
-	//int		g2;
+	// char    *g;
+	// int		g2;
+
+	// g ="une adresse";
 	int		f;
 	int 	x;
-
-	g = -21448; 
-	//g2 = 345;
-	f = printf("Son printf : puis %x\n", g);
-	x = ft_printf("Mon printf : puis %x\n", g);
+	f = printf("%u\n", -4294967294);
+	x = ft_printf("%X\n", (unsigned int)-2);
 
 	printf("mon printf : %d doit être égale à %d", x, f);
 }
