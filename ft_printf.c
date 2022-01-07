@@ -6,7 +6,7 @@
 /*   By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 08:22:36 by gbertin           #+#    #+#             */
-/*   Updated: 2022/01/06 14:17:41 by gbertin          ###   ########.fr       */
+/*   Updated: 2022/01/07 10:31:28 by gbertin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,16 @@ int	ft_printf(const char *format, ...)
 	return (nb_char);
 }
 
-int main()
-{
-	char    *g;
-	//unsigned long long	int	g2 = 18446744073709551612ULL;
+// int main()
+// {
+// 	char    *g;
+// 	unsigned long long	int	g2 = 18446744073709551612ULL;
 
-	// g ="une adresse";
-	int		f;
-	int 	x;
-	f = printf("%x\n", 15);
-	x = ft_printf("%x\n", 15);
+// 	g ="une adresse";
+// 	int		f;
+// 	int 	x;
+// 	f = printf("%X\n", -128);
+// 	x = ft_printf("%X\n", -128);
 
-	printf("mon printf : %d doit être égale à %d", x, f);
-}
+// 	printf("mon printf : %d doit être égale à %d", x, f);
+// }

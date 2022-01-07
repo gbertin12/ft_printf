@@ -6,7 +6,7 @@
 /*   By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:05:55 by gbertin           #+#    #+#             */
-/*   Updated: 2022/01/06 11:28:05 by gbertin          ###   ########.fr       */
+/*   Updated: 2022/01/07 10:30:32 by gbertin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_print_s(char *str);
 int		ft_print_d(int nb);
 int		ft_print_x(unsigned int c);
 int		ft_print_p(unsigned long long int nb);
-int		ft_print_xx(unsigned long long int nb);
+int		ft_print_xx(unsigned int nb);
 int		ft_print_u(unsigned int nb);
 
 int		ft_count_hex(unsigned long long int nb);
