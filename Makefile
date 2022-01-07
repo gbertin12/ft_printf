@@ -6,7 +6,7 @@
 #    By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 08:20:36 by gbertin           #+#    #+#              #
-#    Updated: 2021/12/09 23:04:28 by gbertin          ###   ########.fr        #
+#    Updated: 2022/01/06 09:40:10 by gbertin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS =	ft_printf.c \
 		sources/ft_print_d.c \
 		sources/ft_print_p.c \
 		sources/ft_print_x.c \
+		sources/ft_print_u.c \
 		sources/ft_print_xx.c 
 				
 OBJ=$(SRCS:.c=.o)

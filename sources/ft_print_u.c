@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_s.c                                       :+:      :+:    :+:   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 22:14:58 by gbertin           #+#    #+#             */
-/*   Updated: 2021/12/09 22:15:35 by gbertin          ###   ########.fr       */
+/*   Created: 2022/01/06 09:33:42 by gbertin           #+#    #+#             */
+/*   Updated: 2022/01/06 11:28:26 by gbertin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_print_s(char *str)
+int	ft_count_cu(unsigned int nb)
 {
-	int	i;
+	int	nb_char;
 
-	i = 0;
-	if (str == NULL)
+	nb_char = 0;
+	if (nb == 2147483647)
+		return (10);
+	if (nb < 0)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		nb_char++;
+		nb = -nb;
 	}
-	while (str[i] != '\0')
+	while (nb >= 10)
 	{
-		write(1, &str[i], 1);
-		i++;
+		nb_char++;
+		nb /= 10;
 	}
-	return (i);
+	nb_char++;
+	return (nb_char);
+}
+
+int	ft_print_u(unsigned int nb)
+{
+	if (nb >= 10)
+	{
+		ft_print_d(nb / 10);
+		ft_putchar((nb % 10) + '0');
+	}
+	else
+		ft_putchar(nb + '0');
+	return (ft_count_cu(nb));
 }

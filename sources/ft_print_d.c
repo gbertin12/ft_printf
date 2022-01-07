@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../includes/libftprintf.h"
+#include"../includes/ft_printf.h"
 
 int	ft_count_c(int nb)
 {

@@ -6,19 +6,17 @@
 /*   By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:15:23 by gbertin           #+#    #+#             */
-/*   Updated: 2021/12/09 22:15:35 by gbertin          ###   ########.fr       */
+/*   Updated: 2022/01/06 11:18:53 by gbertin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../includes/libftprintf.h"
+#include"../includes/ft_printf.h"
 
-int	ft_count_hexp(long long int nb)
+int	ft_count_hexp(unsigned long long int nb)
 {
 	int	len;
 
 	len = 0;
-	if (nb < 0)
-		nb = -nb;
 	if (nb == 0)
 		return (1);
 	while (nb > 0)
@@ -29,7 +27,7 @@ int	ft_count_hexp(long long int nb)
 	return (len);
 }
 
-int	ft_print_p(long long int nb)
+int	ft_print_p(unsigned long long int nb)
 {
 	char	*base;
 

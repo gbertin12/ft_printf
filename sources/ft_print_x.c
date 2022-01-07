@@ -6,19 +6,17 @@
 /*   By: gbertin <gbertin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:13:39 by gbertin           #+#    #+#             */
-/*   Updated: 2021/12/09 22:15:35 by gbertin          ###   ########.fr       */
+/*   Updated: 2022/01/06 11:29:29 by gbertin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../includes/libftprintf.h"
+#include"../includes/ft_printf.h"
 
-int	ft_count_hex(int n)
+int	ft_count_hex(unsigned long long int n)
 {
 	int	len;
 
 	len = 0;
-	if (n < 0)
-		n = -n;
 	if (n == 0)
 		return (1);
 	while (n > 0)
@@ -29,15 +27,11 @@ int	ft_count_hex(int n)
 	return (len);
 }
 
-int	ft_print_x(int nb)
+int	ft_print_x(unsigned int nb)
 {
 	char	*base;
 
 	base = "0123456789abcdef";
-	if (nb == -2147483648)
-		ft_print_s("-80000000");
-	if (nb < 0)
-		ft_print_x(-nb);
 	if (nb >= 16)
 	{
 		ft_print_x(nb / 16);
